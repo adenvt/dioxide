@@ -1,0 +1,49 @@
+.navbar {
+  height: $navbar-height;
+
+  @include media-breakpoint-down(sm) {
+    &-nav {
+      flex-direction: row;
+
+      .dropdown {
+        &-menu {
+          position: absolute;
+        }
+      }
+    }
+
+    .mobile-version {
+      position: initial;
+
+      .dropdown-menu {
+        border-radius: 0;
+        height: 100%;
+        left: 0;
+        margin-top: 0;
+        min-width: 100%;
+        padding: spacer(2);
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  &-notification {
+    &-lg {
+      .dropdown {
+        &-menu {
+          min-width: 30rem;
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    &-menu {
+      border: 0;
+      box-shadow: $box-shadow-card;
+    }
+  }
+}
+

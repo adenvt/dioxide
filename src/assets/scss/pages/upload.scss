@@ -1,0 +1,240 @@
+.workflow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 0.65rem;
+
+    &__icon {
+      height: 5.5rem;
+      width: 5.5rem;
+    }
+
+    &__stepper {
+      width: 100%;
+
+      span {
+        font-size: 0.5rem !important;
+      }
+    }
+
+    &-upload {
+      &__droparea {
+        width: 16rem;
+      }
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: $gray-100;
+    border-radius: $border-radius;
+    display: flex;
+    height: 8rem;
+    justify-content: center;
+    margin-bottom: spacer(2);
+    width: 8rem;
+  }
+
+  &__label {
+    color: $body-color;
+
+  }
+
+  &__help {
+    color: $gray-450;
+    float: right;
+  }
+
+  &__stepper {
+    align-items: center;
+    counter-reset: stepper;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  &__step {
+    color: $gray-400;
+    counter-increment: stepper;
+    flex-basis: 0;
+    flex-grow: 1;
+    position: relative;
+    text-align: center;
+
+    &::before {
+      align-items: center;
+      background-color: $gray-200;
+      border: 0.125rem solid $white;
+      border-radius: 50%;
+      content: counter(stepper);
+      display: flex;
+      font-size: $text-10;
+      font-weight: bold;
+      height: 1.5rem;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 1.5rem;
+      z-index: 2;
+    }
+
+    &:not(:first-child)::after {
+      background-color: $gray-200;
+      content: '';
+      height: 0.1875rem;
+      left: -50%;
+      position: absolute;
+      right: 0;
+      top: (1.5rem - 0.1875rem) / 2;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &.active {
+      color: $danger !important;
+
+      &::before {
+        background-color: $danger;
+        color: $white;
+      }
+
+      &::after {
+        background-color: $danger;
+      }
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &-upload {
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+
+    &__droparea {
+      background-color: $white;
+      background-image: url('~assets/image/pattern.svg');
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: $border-radius;
+      padding: spacer(3);
+      text-align: center;
+      width: 26.375rem;
+      // height: 21.25rem;
+    }
+  }
+
+  &-sign {
+    &__navigation {
+      > .table-pagination {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &__action {
+      display: flex;
+      justify-content: center;
+      margin-top: spacer(2);
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &-share {
+    &__recipients {
+      position: relative;
+
+      > .recipient {
+        max-height: 20rem;
+        overflow-y: auto;
+        padding-right: spacer(2);
+      }
+
+      &::after {
+        background-image: linear-gradient(to bottom, #fff0, #fff);
+        bottom: 0;
+        content: '';
+        height: 3rem;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        width: 100%;
+      }
+
+
+      &.expand {
+        > .recipient {
+          max-height: none;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.recipient {
+  &-item {
+    background-color: $gray-100;
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: spacer(2);
+    padding: spacer(2);
+
+    &__icon {
+      visibility: hidden;
+    }
+
+    &__label {
+      flex-grow: 1;
+    }
+
+    .icon {
+      color: $gray-450;
+    }
+
+    &__remove {
+      display: none;
+
+      &:hover {
+        .icon {
+          color: $danger;
+        }
+      }
+    }
+
+    &:hover {
+      .recipient-item__remove {
+        display: inline;
+      }
+    }
+
+    .draggable & {
+      cursor: grab;
+
+      &__icon {
+        visibility: visible;
+      }
+
+      &.sortable-ghost {
+        opacity: 0.5;
+      }
+    }
+  }
+}

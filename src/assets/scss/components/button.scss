@@ -1,0 +1,31 @@
+.btn {
+  padding-right: spacer(5);
+  text-align: left;
+
+  .btn-icon {
+    float: right;
+    margin-right: -2rem;
+    text-align: right;
+  }
+
+  &.icon-only {
+    font-size: 0;
+    padding-left: $input-btn-padding-y;
+    padding-right: $input-btn-padding-y;
+
+    .btn-icon {
+      margin-right: initial;
+    }
+  }
+
+  &-sm {
+    &.icon-only {
+      padding-left: $input-btn-padding-y-sm;
+      padding-right: $input-btn-padding-y-sm;
+    }
+  }
+}
+
+.btn-white {
+  @include button-variant($white, $white);
+}

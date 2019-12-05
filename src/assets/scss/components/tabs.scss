@@ -1,0 +1,20 @@
+.nav-tabs,
+.nav-pills {
+  .nav-link {
+    background-color: $nav-tabs-bg;
+    color: $nav-tabs-color;
+    margin-right: spacer(2);
+
+    &.nuxt-link-active {
+      @extend .nav-link.active;
+    }
+
+    > .badge {
+      font-size: $text-11;
+      font-weight: normal;
+      margin-left: spacer(2);
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+}

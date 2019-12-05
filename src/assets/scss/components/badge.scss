@@ -1,0 +1,22 @@
+.badge {
+  line-height: $line-height-base;
+  text-transform: uppercase;
+
+  &-alt {
+    @each $variant, $color in $theme-colors {
+      &.badge-#{$variant} {
+        background-color: color-yiq($color, $color, lighten($color, 30%));
+        color: color-yiq($color, darken($color, 30%), $color);
+      }
+    }
+  }
+
+  &--green {
+    background-color: #5cc163;
+    color: #fff;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    padding: 0 5px;
+  }
+}

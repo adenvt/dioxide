@@ -1,0 +1,73 @@
+.dropdown {
+  &-notification {
+    &__title {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: spacer(3) spacer(4);
+    }
+
+    &__list {
+      > li,
+      > a {
+        border-top: 1px solid $gray-100;
+        cursor: pointer;
+        justify-content: space-between;
+        padding: spacer(3) spacer(4);
+
+        &:hover {
+          background-color: $gray-200;
+          text-decoration: none;
+        }
+
+        &.unread {
+          background-color: $yellow-bg;
+
+          &:hover {
+            background-color: $gray-200;
+          }
+        }
+      }
+
+      &.custom-menu {
+        padding: 0 spacer(4);
+
+        > li,
+        > a {
+          border-radius: 10px;
+          border-top: 0;
+          color: inherit;
+          margin-bottom: spacer(1);
+          padding: spacer(2) spacer(3);
+
+          &.nuxt-link-active {
+            background-color: $gray-100;
+            color: $danger;
+          }
+        }
+      }
+    }
+
+    &__name {
+      flex-grow: 1;
+      font-size: $text-12;
+      line-height: 1.25rem;
+    }
+
+    &__more {
+      padding: spacer(3) spacer(4);
+    }
+  }
+
+  &-menu {
+    min-width: 18rem;
+  }
+}
+
+.notification {
+  &-scroll {
+    max-height: 18rem;
+    overflow: auto;
+  }
+}

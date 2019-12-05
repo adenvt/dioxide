@@ -1,0 +1,83 @@
+.badge {
+  &[status='request-otp'] {
+    @extend .badge-primary;
+  }
+
+  &[status='completed'] {
+    @extend .badge-success;
+  }
+
+  &[status='shared'] {
+    @extend .badge-warning;
+  }
+
+  &[status='opened'] {
+    @extend .badge-secondary;
+  }
+}
+
+.signature-item {
+  background-color: $gray-100;
+  border-radius: $border-radius;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 43fr 23fr;
+  grid-template-rows: repeat(2, auto);
+  margin-bottom: spacer(3);
+  padding: spacer(3);
+  position: relative;
+
+  &__control {
+    grid-column: 1 / 3;
+  }
+
+  &__delete {
+    float: right;
+    visibility: hidden;
+
+    &:hover {
+      color: $danger;
+    }
+  }
+
+  &:hover {
+    .signature-item__delete {
+      visibility: visible;
+    }
+  }
+
+  &.active {
+    &::after {
+      $size: 1.25rem;
+      background-image: $form-feedback-icon-valid;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      content: '';
+      height: $size;
+      position: absolute;
+      right: $size / 2 * -1;
+      top: $size / 2 * -1;
+      width: $size;
+    }
+  }
+}
+
+.signature-text {
+  border: 1px dashed $gray-500 !important;
+  border-radius: $border-radius !important;
+}
+
+.signature-mark {
+  &__container {
+    @extend .signature-text;
+  }
+
+  &__clear {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend .btn-link;
+
+    padding-right: spacer(2);
+  }
+}

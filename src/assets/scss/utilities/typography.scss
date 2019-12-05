@@ -1,0 +1,14 @@
+@each $size, $font-size in $h {
+  .text-#{$size} {
+    font-size: $font-size;
+  }
+
+  .h-#{$size} {
+    font-size: $font-size;
+    font-weight: 500;
+  }
+}
+
+.text-label {
+  @extend .h-300;
+}

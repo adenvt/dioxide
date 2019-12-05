@@ -1,0 +1,209 @@
+.form-group {
+  > label,
+  > legend {
+    color: $gray-600;
+    font-size: $text-12;
+    font-weight: 500;
+  }
+}
+
+.form-control-alt {
+  position: relative;
+
+  &__btn {
+    align-items: center;
+    bottom: 0;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding-left: spacer(3);
+    padding-right: spacer(3);
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .input-group > & {
+    flex: 1 1 auto;
+    margin-bottom: 0;
+    position: relative;
+    width: 1%;
+  }
+}
+
+.input-group > .form-control-alt:not(:last-child) > .form-control {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.input-group > .form-control-alt:not(:first-child) {
+  > .form-control {
+    border-bottom-left-radius: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+  }
+
+  > .form-control-alt__clear {
+    padding-right: 0;
+  }
+}
+
+.input-group > .input-group-select {
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  width: 15%;
+}
+
+.form-upload {
+  cursor: pointer;
+  display: block;
+  position: relative;
+
+  > input[type='file'] {
+    display: none;
+  }
+
+  &.dragover {
+    &::before {
+      align-items: center;
+      background-color: $white;
+      border: 0.25rem dashed $gray-500;
+      color: $gray-500;
+      content: 'DROP HERE';
+      display: flex;
+      font-size: 300%;
+      height: 100%;
+      justify-content: center;
+      pointer-events: none;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+
+  * {
+    pointer-events: none;
+  }
+
+  a,
+  button {
+    pointer-events: auto;
+  }
+}
+
+.form-otp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &__col {
+    &:not(:last-child) {
+      margin-right: spacer(1);
+    }
+
+    &:not(:first-child) {
+      margin-left: spacer(1);
+    }
+  }
+
+  &__input {
+    text-align: center;
+  }
+}
+
+.form-section {
+  padding-bottom: spacer(3);
+  padding-top: spacer(3);
+
+  &:not(:last-child) {
+    &::after {
+      border-bottom: 1px solid $gray-200;
+      content: '';
+      margin-bottom: spacer(3);
+      margin-left: $grid-gutter-width / 2;
+      margin-right: $grid-gutter-width / 2;
+      margin-top: spacer(3);
+      width: 100%;
+    }
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  &__body {
+    @include media-breakpoint-up(md) {
+      > hr {
+        width: calc(#{(9 / 4 * 100%)} + #{$grid-gutter-width});
+      }
+    }
+
+    > .divider {
+      @extend hr;
+    }
+  }
+}
+
+
+.valid-feedback,
+.invalid-feedback {
+  &::before {
+    display: block;
+    float: left;
+    height: 16px;
+    margin-right: spacer(1);
+    width: 16px;
+  }
+
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.valid-feedback::before {
+  content: $form-feedback-icon-valid;
+}
+
+.invalid-feedback::before {
+  content: $form-feedback-icon-invalid;
+}
+
+.form-avatar {
+  cursor: pointer;
+  position: relative;
+
+  & > &__input {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+  }
+
+  &:hover {
+    &::before {
+      background-color: rgba($gray-950, 0.5);
+      background-image: url('data:image/svg+xml,<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;" fill="%23ffffff"><path d="M29 26H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h6.46l1.71-2.55A1 1 0 0 1 12 4h8a1 1 0 0 1 .83.45L22.54 7H29a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1zM4 24h24V9h-6a1 1 0 0 1-.83-.45L19.46 6h-6.92l-1.71 2.55A1 1 0 0 1 10 9H4z"></path><path d="M16 22a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm0-10a4 4 0 1 0 4 4 4 4 0 0 0-4-4z"></path></svg>');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 30%;
+      border-radius: 50%;
+      bottom: 0;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

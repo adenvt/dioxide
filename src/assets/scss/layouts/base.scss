@@ -1,0 +1,23 @@
+html {
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.65;
+}
+
+.page {
+  &-enter-active,
+  &-leaver-active {
+    transition: opacity 0.3s;
+  }
+
+  &-enter,
+  &-page-leave-to {
+    opacity: 0;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

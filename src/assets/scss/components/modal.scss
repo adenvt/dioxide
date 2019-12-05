@@ -1,0 +1,17 @@
+.modal-header {
+  .modal-title {
+    font-size: $h-500;
+  }
+
+  .close {
+    border-top-right-radius: $border-radius;
+
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}
+
+.modal-footer {
+  justify-content: flex-start;
+}

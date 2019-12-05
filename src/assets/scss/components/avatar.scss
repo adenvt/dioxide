@@ -1,0 +1,33 @@
+.avatar {
+  &__img {
+    border: $avatar-border-size solid $avatar-border-color;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &-xs {
+    height: $avatar-size-xs;
+    width: $avatar-size-xs;
+  }
+
+  &-sm {
+    height: $avatar-size-sm;
+    width: $avatar-size-sm;
+  }
+
+  &-md {
+    height: $avatar-size-md;
+    width: $avatar-size-md;
+  }
+
+  &-lg {
+    height: $avatar-size-lg;
+    width: $avatar-size-lg;
+  }
+
+  &-xl {
+    height: $avatar-size-xl;
+    width: $avatar-size-xl;
+  }
+}

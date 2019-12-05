@@ -1,0 +1,11 @@
+a {
+  &.customize-link {
+    &:hover {
+      text-decoration: none;
+
+      .underline {
+        text-decoration: underline;
+      }
+    }
+  }
+}

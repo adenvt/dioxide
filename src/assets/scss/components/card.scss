@@ -1,0 +1,57 @@
+.card {
+  box-shadow: $box-shadow;
+
+  &-info {
+    $size: 0.875rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: $size;
+    color: $white;
+    padding: spacer(4);
+    width: 100%;
+
+    &__warning {
+      background-image: url('~assets/image/in-progress.svg');
+    }
+
+    &__success {
+      background-image: url('~assets/image/rectangle.svg');
+    }
+
+    &__secondary {
+      background-image: url('~assets/image/draft.svg');
+    }
+
+    &__danger {
+      background-image: url('~assets/image/all-documents.svg');
+    }
+  }
+
+  &-icon {
+    $size: 3.15rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: $white;
+    height: $size;
+    width: $size;
+
+    &__progress {
+      background-image: url('~assets/image/icon-in-progress.svg');
+    }
+
+    &__completed {
+      background-image: url('~assets/image/icon-completed.svg');
+    }
+
+    &__draft {
+      background-image: url('~assets/image/icon-draft.svg');
+    }
+
+    &__doc {
+      background-image: url('~assets/image/icon-doc-all.svg');
+    }
+  }
+}

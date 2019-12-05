@@ -1,0 +1,138 @@
+.sidebar {
+  bottom: 0;
+  left: 0;
+  min-height: 100vh;
+  padding: spacer(3) spacer(1);
+  position: absolute;
+  top: 0;
+  width: $sidebar-width;
+
+  &.open {
+    padding: spacer(3);
+    width: $sidebar-width-open;
+  }
+
+  &-dark {
+    background-color: $gray-800;
+    color: color-yiq($gray-800);
+  }
+
+  &,
+  > * {
+    transition-duration: 0.3s;
+    transition-property: width, color, border-color, background-color, padding, margin, visibility;
+  }
+}
+
+.sidebar-item {
+  &__body {
+    overflow-x: hidden;
+    padding-left: spacer(2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__mini {
+    display: none;
+    visibility: hidden;
+  }
+
+  &--nav {
+    align-items: center;
+    border-radius: $border-radius;
+    color: $gray-400 !important;
+    cursor: pointer;
+    display: flex;
+    padding: spacer(2) spacer(3);
+
+    &:hover,
+    &.nuxt-link-active {
+      background-color: $gray-700;
+      text-decoration: none;
+    }
+  }
+
+  &--button {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: $input-btn-padding-y;
+    width: 100%;
+  }
+
+  &--brand {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+
+    .sidebar-item__icon {
+      @extend .sidebar-item--button;
+
+      width: auto;
+    }
+
+    .sidebar-item__body {
+      margin-right: spacer(5);
+    }
+  }
+
+  &--input {
+    &,
+    &:hover {
+      background-color: $gray-900;
+    }
+
+    .sidebar-item__body {
+      color: $gray-700;
+    }
+  }
+
+  &,
+  &--nav,
+  &--button,
+  &--brand {
+    margin-bottom: spacer(2);
+  }
+
+  .sidebar:not(.open) & {
+    &__body {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__mini {
+      display: block;
+      visibility: visible;
+    }
+
+    &--nav {
+      justify-content: center;
+    }
+
+    &--button {
+      justify-content: center;
+      padding-right: $input-btn-padding-y;
+
+      .btn-icon {
+        margin-right: auto;
+      }
+    }
+
+    &--brand {
+      .sidebar-item__icon {
+        width: 100%;
+      }
+    }
+
+    &--input {
+      background-color: transparent;
+
+      &:hover {
+        background-color: $gray-900;
+      }
+    }
+  }
+}

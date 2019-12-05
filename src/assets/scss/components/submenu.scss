@@ -1,0 +1,51 @@
+.submenu {
+  &__label {
+    color: $gray-500;
+    font-size: $text-11;
+    margin-bottom: spacer(2);
+    text-transform: uppercase;
+  }
+
+  &-item {
+    align-items: center;
+    border-radius: $border-radius;
+    color: $gray-700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: spacer(1);
+    padding: spacer(2) spacer(3);
+
+    &__icon {
+      color: $gray-450;
+      flex-shrink: 0;
+      margin-right: spacer(2);
+    }
+
+    &__body {
+      flex-grow: 1;
+    }
+
+    &__badge {
+      background-color: $gray-300;
+      color: $gray-600;
+    }
+
+    &:hover,
+    &.active,
+    &.nuxt-link-active {
+      background-color: $gray-200;
+      color: $danger;
+      text-decoration: none;
+
+      .submenu-item__icon {
+        color: inherit;
+      }
+
+      .submenu-item__badge {
+        background-color: $danger-bg;
+        color: $danger;
+      }
+    }
+  }
+}
